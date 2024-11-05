@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Mind Map</title>
+    <title>Quentin's Portfolio</title>
     <style>
         body {
             display: flex;
@@ -25,25 +25,27 @@
         }
         .node {
             position: absolute;
-            width: 150px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #fff;
             border: 2px solid #007BFF;
-            border-radius: 10px;
+            border-radius: 50%;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
             cursor: pointer;
+            text-align: center;
+            padding: 10px;
         }
         .node:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
             box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
         }
         .center-node {
-            width: auto; /* Adjust width automatically based on content */
-            height: auto; /* Adjust height automatically based on content */
+            width: auto;
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -53,16 +55,17 @@
         }
         
         img {
-            border-radius: 50%; /* Keeps the image round */
-            width: 15%; /* Set width as needed */
-            height: 15%; /* Set height as needed */
-            border: 2px solid black; /* Small black border around the image */
+            border-radius: 50%;
+            width: 15%;
+            height: 15%;
+            border: 2px solid black;
         }
         
         .node-text {
             margin-top: 10px;
             font-weight: bold;
             color: #333;
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -70,16 +73,14 @@
     <div class="mindmap">
         <div class="center-node">
             <img src="profile picture.jpg" alt="Your Photo">
-            <div class="node-text">Quentin Dinel</div>
+            <div class="node-text">Quentin Dinel<br>Data Scientist</div>
         </div>
         <a href="personal-info.html" class="node" style="top: 10%; left: 50%; transform: translate(-50%, -100%);">Personal Information</a>
         <a href="professional-summary.html" class="node" style="top: 50%; left: 10%; transform: translate(-100%, -50%);">Professional Summary</a>
         <a href="projects.html" class="node" style="top: 50%; right: 10%; transform: translate(100%, -50%);">Projects</a>
-        <a href="skills.html" class="node" style="bottom: 10%; left: 50%; transform: translate(-50%, 100%);">Skills</a>
-        <a href="work-experience.html" class="node" style="bottom: 25%; left: 25%; transform: translate(-50%, 50%);">Work Experience</a>
-        <a href="education.html" class="node" style="bottom: 25%; right: 25%; transform: translate(50%, 50%);">Education</a>
-        <a href="personal-interests.html" class="node" style="bottom: 10%; left: 20%; transform: translate(-50%, 100%);">Personal Interests</a>
-        <a href="awards.html" class="node" style="bottom: 10%; right: 20%; transform: translate(50%, 100%);">Awards</a>
+        <a href="work-experience.html" class="node" style="bottom: 10%; left: 30%; transform: translate(-50%, 100%);">Work Experience</a>
+        <a href="education.html" class="node" style="bottom: 10%; right: 30%; transform: translate(50%, 100%);">Education</a>
+        <a href="personal-interests.html" class="node" style="bottom: 50%; left: 50%; transform: translate(-50%, 100%);">Personal Interests</a>
     </div>
 </body>
 </html>
