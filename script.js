@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const centerX = centerNode.offsetLeft + centerNode.offsetWidth / 2;
     const centerY = centerNode.offsetTop + centerNode.offsetHeight / 2;
 
-    // Position each node in a circular layout and draw connecting lines
+    // Clear existing paths in case of reloads
+    svg.innerHTML = '';
+
     nodes.forEach((node, index) => {
         const angle = (index / nodes.length) * (2 * Math.PI);
         const x = centerX + radius * Math.cos(angle) - node.offsetWidth / 2;
@@ -17,11 +19,14 @@ document.addEventListener("DOMContentLoaded", function() {
         node.style.top = `${y}px`;
         node.textContent = node.getAttribute('data-label');
 
-        // Draw curved line from center node to this node
+        // Draw a curved line from the center node to this node
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        const controlX = (centerX + x) / 2 + 50 * Math.cos(angle + Math.PI / 2);
-        const controlY = (centerY + y) / 2 + 50 * Math.sin(angle + Math.PI / 2);
 
+        // Calculate control points for smooth curves
+        const controlX = centerX + 0.5 * (x - centerX);
+        const controlY = centerY + 0.5 * (y - centerY) - 50 * Math.sign(Math.sin(angle));
+
+        // Set up the path using a smooth curve
         path.setAttribute("d", `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${x + node.offsetWidth / 2} ${y + node.offsetHeight / 2}`);
         path.setAttribute("stroke", "#007BFF");
         path.setAttribute("stroke-width", "2");
