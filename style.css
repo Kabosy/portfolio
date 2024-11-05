@@ -51,7 +51,7 @@ body {
     margin: 5px 0;
 }
 
-.contact-info .icon {
+.contact-info #icon {
     width: 20px; /* Icon width */
     height: 20px; /* Icon height */
     margin-right: 8px; /* Space between icon and text */
