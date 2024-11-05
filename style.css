@@ -27,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: 2;
+    z-index: 1;
 }
 
 .center-node img {
@@ -82,6 +82,7 @@ body {
     text-align: center;
     padding: 10px;
     pointer-events:auto;
+    z-index: 2;
 }
 
 .node:hover {
