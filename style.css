@@ -37,6 +37,35 @@ body {
     border: 2px solid black;
 }
 
+.contact-info {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.contact-info .icon {
+    width: 20px; /* Icon width */
+    height: 20px; /* Icon height */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.contact-info a {
+    color: #007BFF; /* LinkedIn link color */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
 .node {
     position: absolute;
     width: 120px;
