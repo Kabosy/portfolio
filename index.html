@@ -3,181 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quentin's Portfolio</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .mindmap {
-            position: relative;
-            width: 80vw;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .mindmap svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; /* Behind the nodes */
-        }
-        .mindmap svg path {
-            fill: none;
-            stroke: #007BFF;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            opacity: 0.6;
-        }
-        .node {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border: 2px solid #007BFF;
-            border-radius: 50%;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-            cursor: pointer;
-            text-align: center;
-            padding: 10px;
-        }
-        .node:hover {
-            transform: scale(1.1);
-            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .center-node {
-            width: auto;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 2;
-        }
-        
-        .center-node img {
-            border-radius: 50%;
-            width: 15%;
-            height: 15%;
-            border: 2px solid black;
-            object-fit: cover;
-        }
-        
-        .node-text {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #333;
-            font-size: 1.5em;
-        }
-
-        @media (max-width: 768px) {
-            .mindmap {
-                width: 100vw;
-                height: 100vh;
-            }
-            .node {
-                width: 100px;
-                height: 100px;
-                font-size: 0.9em;
-            }
-            .center-node img {
-                width: 100px;
-                height: 100px;
-            }
-            .node-text {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+    <title>Mindmap Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="mindmap">
-        <svg>
-            <path id="line1" d="" />
-            <path id="line2" d="" />
-            <path id="line3" d="" />
-            <path id="line4" d="" />
-            <path id="line5" d="" />
-            <path id="line6" d="" />
-        </svg>
-        <div class="center-node">
-            <img src="profile picture.jpg" alt="Your Photo">
-            <div class="node-text">Quentin Dinel<br>Data Scientist</div>
+        <!-- SVG for connector lines -->
+        <svg class="connections" width="100%" height="100%" viewBox="0 0 800 800"></svg>
+
+        <!-- Center node with your image -->
+        <div class="node center-node">
+            <img src="profile picture.jpg" alt="Quentin Dinel">
+            <div class="node-text">Quentin Dinel</div>
         </div>
-        <a href="personal-info.html" class="node" id="node1">Personal Information</a>
-        <a href="professional-summary.html" class="node" id="node2">Professional Summary</a>
-        <a href="projects.html" class="node" id="node3">Projects</a>
-        <a href="work-experience.html" class="node" id="node4">Work Experience</a>
-        <a href="education.html" class="node" id="node5">Education</a>
-        <a href="personal-interests.html" class="node" id="node6">Personal Interests</a>
+
+        <!-- Nodes to be positioned around the center -->
+        <div class="node" data-label="Personal Information"></div>
+        <div class="node" data-label="Professional Summary"></div>
+        <div class="node" data-label="Projects"></div>
+        <div class="node" data-label="Work Experience"></div>
+        <div class="node" data-label="Education"></div>
+        <div class="node" data-label="Personal Interests"></div>
     </div>
-<script>
-    function updateLines() {
-        const centerNode = document.querySelector('.center-node');
-        const nodes = [
-            document.getElementById('node1'),
-            document.getElementById('node2'),
-            document.getElementById('node3'),
-            document.getElementById('node4'),
-            document.getElementById('node5'),
-            document.getElementById('node6')
-        ];
 
-        const svg = document.querySelector('svg');
-        const paths = svg.querySelectorAll('path');
-
-        // Get center coordinates
-        const centerRect = centerNode.getBoundingClientRect();
-        const mindmapRect = svg.getBoundingClientRect();
-        const centerX = centerRect.left + centerRect.width / 2 - mindmapRect.left;
-        const centerY = centerRect.top + centerRect.height / 2 - mindmapRect.top;
-
-        nodes.forEach((node, index) => {
-            const nodeRect = node.getBoundingClientRect();
-            const nodeX = nodeRect.left + nodeRect.width / 2 - mindmapRect.left;
-            const nodeY = nodeRect.top + nodeRect.height / 2 - mindmapRect.top;
-
-            // Control points for Bezier curve
-            const controlOffset = 50; // Adjust for curvature
-            let controlX, controlY;
-
-            // Calculate control points based on node position
-            if (nodeX === centerX) {
-                controlX = centerX;
-                controlY = centerY;
-            } else if (nodeY === centerY) {
-                controlX = centerX;
-                controlY = nodeY;
-            } else {
-                controlX = centerX;
-                controlY = nodeY;
-            }
-
-            // Define the path with a quadratic Bezier curve
-            const pathData = `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${nodeX} ${nodeY}`;
-            paths[index].setAttribute('d', pathData);
-        });
-    }
-
-    // Initial call
-    window.addEventListener('load', updateLines);
-    // Update on window resize
-    window.addEventListener('resize', updateLines);
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
-
