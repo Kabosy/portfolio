@@ -42,24 +42,23 @@
             box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
         }
         .center-node {
-            width: 200px;
-            height: 150px;
-            border: 3px solid #FFC107;
-            background-color: #FFF3CD;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2;
+            width: auto; /* Adjust width automatically based on content */
+            height: auto; /* Adjust height automatically based on content */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            z-index: 2;
         }
+        
         img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            border-radius: 50%; /* Keeps the image round */
+            width: 100px; /* Set width as needed */
+            height: 100px; /* Set height as needed */
+            border: 2px solid black; /* Small black border around the image */
         }
+        
         .node-text {
             margin-top: 10px;
             font-weight: bold;
