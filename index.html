@@ -8,24 +8,19 @@
 </head>
 <body>
     <div class="mindmap">
-        <!-- SVG for connector lines -->
-        <svg class="connections" width="100%" height="100%" viewBox="0 0 800 800"></svg>
-
-        <!-- Center node with your image -->
         <div class="node center-node">
             <img src="profile picture.jpg" alt="Quentin Dinel">
             <div class="node-text">Quentin Dinel</div>
         </div>
-
-        <!-- Nodes to be positioned around the center -->
-        <div class="node" data-label="Personal Information"></div>
-        <div class="node" data-label="Professional Summary"></div>
-        <div class="node" data-label="Projects"></div>
-        <div class="node" data-label="Work Experience"></div>
-        <div class="node" data-label="Education"></div>
-        <div class="node" data-label="Personal Interests"></div>
+        
+        <!-- Six nodes positioned symmetrically around the center -->
+        <a href="personal-info.html" class="node" style="top: 5%; left: 50%; transform: translate(-50%, -100%);">Personal Information</a>
+        <a href="professional-summary.html" class="node" style="top: 30%; left: 15%; transform: translate(-50%, -50%);">Professional Summary</a>
+        <a href="projects.html" class="node" style="top: 30%; right: 15%; transform: translate(50%, -50%);">Projects</a>
+        <a href="work-experience.html" class="node" style="bottom: 30%; left: 15%; transform: translate(-50%, 50%);">Work Experience</a>
+        <a href="education.html" class="node" style="bottom: 30%; right: 15%; transform: translate(50%, 50%);">Education</a>
+        <a href="personal-interests.html" class="node" style="bottom: 5%; left: 50%; transform: translate(-50%, 100%);">Personal Interests</a>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
