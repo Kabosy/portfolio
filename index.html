@@ -34,37 +34,53 @@
             border: 2px solid #007BFF;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .node:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
         }
         .center-node {
             width: 200px;
             height: 150px;
-            border: 2px solid #FFC107;
+            border: 3px solid #FFC107;
             background-color: #FFF3CD;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         img {
             border-radius: 50%;
             width: 100px;
             height: 100px;
         }
+        .node-text {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <div class="mindmap">
         <div class="node center-node">
-            <img src="profile picture.jpg" alt="Your Photo">
-            <div>Your Name</div>
+            <img src="your-photo-url.jpg" alt="Your Photo">
+            <div class="node-text">Your Name</div>
         </div>
-        <div class="node" style="top: 0; left: 50%; transform: translate(-50%, -100%);">Personal Information</div>
-        <div class="node" style="top: 50%; left: 0; transform: translate(-100%, -50%);">Professional Summary</div>
-        <div class="node" style="top: 50%; right: 0; transform: translate(100%, -50%);">Projects</div>
-        <div class="node" style="bottom: 0; left: 50%; transform: translate(-50%, 100%);">Skills</div>
-        <div class="node" style="bottom: 20%; left: 25%; transform: translate(-50%, 50%);">Work Experience</div>
-        <div class="node" style="bottom: 20%; right: 25%; transform: translate(50%, 50%);">Education</div>
-        <div class="node" style="bottom: 0; left: 20%; transform: translate(-50%, 100%);">Personal Interests</div>
-        <div class="node" style="bottom: 0; right: 20%; transform: translate(50%, 100%);">Awards</div>
+        <div class="node" style="top: 10%; left: 50%; transform: translate(-50%, -100%);">Personal Information</div>
+        <div class="node" style="top: 50%; left: 10%; transform: translate(-100%, -50%);">Professional Summary</div>
+        <div class="node" style="top: 50%; right: 10%; transform: translate(100%, -50%);">Projects</div>
+        <div class="node" style="bottom: 10%; left: 50%; transform: translate(-50%, 100%);">Skills</div>
+        <div class="node" style="bottom: 25%; left: 25%; transform: translate(-50%, 50%);">Work Experience</div>
+        <div class="node" style="bottom: 25%; right: 25%; transform: translate(50%, 50%);">Education</div>
+        <div class="node" style="bottom: 10%; left: 20%; transform: translate(-50%, 100%);">Personal Interests</div>
+        <div class="node" style="bottom: 10%; right: 20%; transform: translate(50%, 100%);">Awards</div>
     </div>
 </body>
 </html>
+
