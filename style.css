@@ -103,22 +103,32 @@ body {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.2em;
+    line-height: 1.5;
+    color: #007BFF;
 }
 
 .skills {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    display: flex; /* Use flexbox for columns */
+    justify-content: space-between; /* Space between columns */
+    align-items: stretch; /* Stretch columns to be the same height */
+    margin-top: 20px; /* Space above skills section */
+    border-top: 2px solid #007BFF; /* Top border for visual separation */
+    padding-top: 20px; /* Space above the skills section */
 }
 
 .column {
-    flex: 1;
-    margin: 0 10px;
+    flex: 1; /* Each column takes equal space */
+    margin: 0 10px; /* Margin between columns */
+    padding: 20px; /* Padding inside the columns */
+    background-color: #f9f9f9; /* Light background for columns */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for columns */
 }
 
 h2 {
     text-align: center;
     color: #007BFF;
+    margin-bottom: 10px; /* Space below the headings */
 }
 
 ul {
@@ -129,4 +139,12 @@ ul {
 li {
     padding: 5px 0;
     text-align: center;
+    font-size: 1.1em; /* Slightly larger font size for list items */
+    color: #333; /* Dark text color */
+}
+
+.separator {
+    width: 2px; /* Width of the vertical line */
+    background-color: #007BFF; /* Color of the vertical line */
+    margin: 0 20px; /* Margin on the sides of the line */
 }
