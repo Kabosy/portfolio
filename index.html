@@ -22,6 +22,22 @@
             justify-content: center;
             align-items: center;
         }
+        .mindmap svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind the nodes */
+        }
+        .mindmap svg path {
+            fill: none;
+            stroke: #007BFF;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.6;
+        }
         .node {
             position: absolute;
             width: 120px;
@@ -53,11 +69,12 @@
             z-index: 2;
         }
         
-        img {
+        .center-node img {
             border-radius: 50%;
             width: 15%;
             height: 15%;
             border: 2px solid black;
+            object-fit: cover;
         }
         
         .node-text {
@@ -67,35 +84,100 @@
             font-size: 1.5em;
         }
 
-        .connections {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
+        @media (max-width: 768px) {
+            .mindmap {
+                width: 100vw;
+                height: 100vh;
+            }
+            .node {
+                width: 100px;
+                height: 100px;
+                font-size: 0.9em;
+            }
+            .center-node img {
+                width: 100px;
+                height: 100px;
+            }
+            .node-text {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="mindmap">
-        <svg class="connections" width="100%" height="100%" viewBox="0 0 800 800">
-            <path d="M 400,400 Q 400,200 400,120" stroke="#007BFF" stroke-width="2" fill="none" />
-            <path d="M 400,400 Q 250,250 120,120" stroke="#007BFF" stroke-width="2" fill="none" />
-            <path d="M 400,400 Q 550,250 680,120" stroke="#007BFF" stroke-width="2" fill="none" />
-            <path d="M 400,400 Q 200,550 120,680" stroke="#007BFF" stroke-width="2" fill="none" />
-            <path d="M 400,400 Q 600,550 680,680" stroke="#007BFF" stroke-width="2" fill="none" />
-            <path d="M 400,400 Q 400,600 400,680" stroke="#007BFF" stroke-width="2" fill="none" />
+        <svg>
+            <path id="line1" d="" />
+            <path id="line2" d="" />
+            <path id="line3" d="" />
+            <path id="line4" d="" />
+            <path id="line5" d="" />
+            <path id="line6" d="" />
         </svg>
         <div class="center-node">
             <img src="profile picture.jpg" alt="Your Photo">
             <div class="node-text">Quentin Dinel<br>Data Scientist</div>
         </div>
-        <a href="personal-info.html" class="node" style="top: 5%; left: 50%; transform: translate(-50%, -100%);">Personal Information</a>
-        <a href="professional-summary.html" class="node" style="top: 30%; left: 15%; transform: translate(-50%, -50%);">Professional Summary</a>
-        <a href="projects.html" class="node" style="top: 30%; right: 15%; transform: translate(50%, -50%);">Projects</a>
-        <a href="work-experience.html" class="node" style="bottom: 30%; left: 15%; transform: translate(-50%, 50%);">Work Experience</a>
-        <a href="education.html" class="node" style="bottom: 30%; right: 15%; transform: translate(50%, 50%);">Education</a>
-        <a href="personal-interests.html" class="node" style="bottom: 5%; left: 50%; transform: translate(-50%, 100%);">Personal Interests</a>
+        <a href="personal-info.html" class="node" id="node1">Personal Information</a>
+        <a href="professional-summary.html" class="node" id="node2">Professional Summary</a>
+        <a href="projects.html" class="node" id="node3">Projects</a>
+        <a href="work-experience.html" class="node" id="node4">Work Experience</a>
+        <a href="education.html" class="node" id="node5">Education</a>
+        <a href="personal-interests.html" class="node" id="node6">Personal Interests</a>
     </div>
+<script>
+    function updateLines() {
+        const centerNode = document.querySelector('.center-node');
+        const nodes = [
+            document.getElementById('node1'),
+            document.getElementById('node2'),
+            document.getElementById('node3'),
+            document.getElementById('node4'),
+            document.getElementById('node5'),
+            document.getElementById('node6')
+        ];
+
+        const svg = document.querySelector('svg');
+        const paths = svg.querySelectorAll('path');
+
+        // Get center coordinates
+        const centerRect = centerNode.getBoundingClientRect();
+        const mindmapRect = svg.getBoundingClientRect();
+        const centerX = centerRect.left + centerRect.width / 2 - mindmapRect.left;
+        const centerY = centerRect.top + centerRect.height / 2 - mindmapRect.top;
+
+        nodes.forEach((node, index) => {
+            const nodeRect = node.getBoundingClientRect();
+            const nodeX = nodeRect.left + nodeRect.width / 2 - mindmapRect.left;
+            const nodeY = nodeRect.top + nodeRect.height / 2 - mindmapRect.top;
+
+            // Control points for Bezier curve
+            const controlOffset = 50; // Adjust for curvature
+            let controlX, controlY;
+
+            // Calculate control points based on node position
+            if (nodeX === centerX) {
+                controlX = centerX;
+                controlY = centerY;
+            } else if (nodeY === centerY) {
+                controlX = centerX;
+                controlY = nodeY;
+            } else {
+                controlX = centerX;
+                controlY = nodeY;
+            }
+
+            // Define the path with a quadratic Bezier curve
+            const pathData = `M ${centerX} ${centerY} Q ${controlX} ${controlY} ${nodeX} ${nodeY}`;
+            paths[index].setAttribute('d', pathData);
+        });
+    }
+
+    // Initial call
+    window.addEventListener('load', updateLines);
+    // Update on window resize
+    window.addEventListener('resize', updateLines);
+</script>
 </body>
 </html>
 
