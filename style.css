@@ -307,6 +307,10 @@ li {
 /* Adjust images grid for the last (future) work experience with only one image */
 .work-experience-container.future .work-images {
     grid-template-columns: 1fr;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 /* Styling for the arrows between the work experiences */
