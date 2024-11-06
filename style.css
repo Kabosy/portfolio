@@ -1,3 +1,12 @@
+.page-title {
+    text-align: center;
+    font-size: 3em;
+    color: #007BFF;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -245,13 +254,4 @@ li {
     .project-images {
         grid-template-columns: 1fr; /* Single column for images on smaller screens */
     }
-}
-
-.page-title {
-    text-align: center;
-    font-size: 3em;
-    color: #007BFF;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-weight: bold;
 }
