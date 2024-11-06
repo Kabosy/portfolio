@@ -249,12 +249,14 @@ li {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
+/* Timeline container */
 .work-experience-timeline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 /* Styling for each Work Experience container */
@@ -319,11 +321,13 @@ li {
     color: #007BFF;
 }
 
-/* Date Styling */
+/* Date Styling (outside the container and below it) */
 .date {
     font-style: italic;
     color: #555;
     margin-top: 15px;
+    text-align: center;
+    font-size: 1.1em;
 }
 
 @media (max-width: 768px) {
