@@ -179,15 +179,10 @@ li {
     margin: 0 20px; /* Margin on the sides of the line */
 }
 
-.page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-}
-
 .page-title {
+    position: absolute;
+    display: flex;
+    top: 20%;
     text-align: center;
     font-size: 3em;
     color: #007BFF;
