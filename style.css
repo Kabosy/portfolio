@@ -266,6 +266,7 @@ li {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    height: 400px;
 }
 
 .work-experience-container h2 {
@@ -285,6 +286,7 @@ li {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 15px;
+    overflow: hidden;
 }
 
 .work-images a {
