@@ -249,7 +249,6 @@ li {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
-/* Timeline container */
 .work-experience-timeline {
     display: flex;
     justify-content: space-between;
@@ -270,6 +269,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 30px; /* Added space below each container */
 }
 
 /* Title for each Work Experience */
@@ -328,7 +328,9 @@ li {
     margin-top: 15px;
     text-align: center;
     font-size: 1.1em;
+    display: block; /* Ensures the date stays on its own line */
 }
+
 
 @media (max-width: 768px) {
     .projects-container {
@@ -339,5 +341,9 @@ li {
     }
     .work-images {
         grid-template-columns: 1fr;
+    }
+
+    .arrow-container {
+        display: none;
     }
 }
