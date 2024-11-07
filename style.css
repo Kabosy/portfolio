@@ -443,6 +443,7 @@ li {
 .certificate-link {
     align-items: center;
     margin-top: 20px;
+    justify-content: center;
 }
 
 /* Styling for the certificate icon */
