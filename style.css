@@ -379,16 +379,32 @@ li {
 /* Styling for each education card */
 .education-card {
     width: 280px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-bottom: 30px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 
+/* Alternating background colors for the cards */
+.education-card:nth-child(odd) {
+    background-color: #f0f8ff; /* Light blue */
+}
+
+.education-card:nth-child(even) {
+    background-color: #e8f8e8; /* Light green */
+}
+
+/* Hover effect to lift the card and add a subtle shadow */
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title within each education card */
 .education-card h2 {
     font-size: 1.8em;
     color: #007BFF;
@@ -408,12 +424,6 @@ li {
     display: none;
 }
 
-/* Hover effect to lift the card */
-.education-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
 /* Styling for text and spacing */
 .education-card p {
     font-size: 1em;
@@ -429,6 +439,7 @@ li {
 .education-card strong {
     color: #007BFF;
 }
+
 @media (max-width: 768px) {
     .projects-container {
         flex-direction: column;
