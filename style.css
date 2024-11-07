@@ -330,6 +330,7 @@ li {
 
 .social-links {
     display: flex;
+    justify-content: center; /* Center the icons */
     gap: 15px;
     margin-top: 15px;
 }
