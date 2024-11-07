@@ -441,10 +441,8 @@ li {
 }
 
 .certificate-link {
-    display: flex;
     align-items: center;
     margin-top: 20px;
-    justify-content: center;
 }
 
 /* Styling for the certificate icon */
