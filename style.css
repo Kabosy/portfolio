@@ -272,14 +272,18 @@ li {
 
 /* -------------------------------------- */
 
+/* -------------------------------------- */
+/* --- MODIFICATIONS WORK EXPERIENCE --- */
+/* -------------------------------------- */
+
 /* Timeline container */
 .work-experience-timeline {
     display: flex;
     justify-content: space-between;
     align-items: stretch; /* Force tous les conteneurs à avoir la même hauteur */
-    gap: 20px;
-    width: 90vw; /* Utilise 90% de la largeur de l'écran */
-    max-width: 1400px; /* Limite maximale pour les grands écrans */
+    gap: 30px; /* Agrandit l'espace entre les conteneurs (précédemment 20px) */
+    width: 95vw; /* Utilise 95% de la largeur de l'écran pour donner plus de place */
+    max-width: 1600px; /* Augmente la limite maximale globale (précédemment 1400px) */
     margin: 0 auto; /* Centre la timeline */
 }
 
@@ -288,12 +292,12 @@ li {
     flex: 1; /* Permet aux conteneurs de s'adapter et de prendre le même espace */
     display: flex;
     flex-direction: column; /* Organise le contenu de haut en bas */
-    padding: 30px; /* Un peu plus d'espace à l'intérieur */
+    padding: 40px; /* Augmente l'espace interne pour laisser respirer le texte (précédemment 30px) */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /* On supprime la hauteur fixe (height: 350px;) pour laisser Flexbox gérer */
+    /* La hauteur s'adapte automatiquement au texte grâce à flex-direction: column */
 }
 
 .work-experience-container h2 {
@@ -305,7 +309,8 @@ li {
 .work-experience-container .date {
     color: #555;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Plus d'espace avant les logos */
+    font-size: 1.05em; /* Optionnel : grossit très légèrement le texte pour plus de lisibilité */
     flex: 1; /* Le texte prend tout l'espace libre, ce qui pousse les images vers le bas */
 }
 
@@ -345,10 +350,11 @@ li {
     justify-content: center;
     align-items: center;
     width: auto;
+    padding: 0 10px; /* Évite que la flèche ne soit trop collée aux conteneurs élargis */
 }
 
 .arrow {
-    font-size: 2em;
+    font-size: 2.5em; /* Agrandit légèrement la flèche pour rester proportionnelle (précédemment 2em) */
     color: #007BFF;
 }
 
@@ -509,5 +515,6 @@ li {
         align-items: center;
     }
 }
+
 
 
