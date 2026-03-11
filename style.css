@@ -290,11 +290,15 @@ li {
 }
 
 .work-images a {
-    display: block;
+    display: flex; /* Centrer l'image dans son conteneur a */
+    justify-content: center;
+    align-items: center;
 }
 
 .work-images img {
-    width: 100%;
+    width: 60%; /* Réduction de la taille (au lieu de 100%) */
+    max-height: 80px; /* Hauteur maximum pour éviter d'avoir des logos trop grands */
+    object-fit: contain; /* Évite de déformer l'image */
     height: auto;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -313,6 +317,10 @@ li {
     margin-right: auto;
     margin-top: 10%;
     display: block;
+}
+
+.work-experience-container.future .work-images img {
+    width: 100%; /* Si vous voulez que la future image prenne toute la place dans sa petite colonne */
 }
 
 /* Styling for the arrows between the work experiences */
